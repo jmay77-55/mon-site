@@ -1,0 +1,110 @@
+.mytitle {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.logoPdf img {
+    max-width: 10%;
+    /* L'image ne dépasse jamais la taille du conteneur */
+    height: auto;
+    /* Conserve les proportions de l'image */
+    display: block;
+    /* Supprime l'espace blanc sous l'image */
+    margin: 0 auto;
+    /* Centre l'image horizontalement */
+}
+
+.logoPdf source {
+    width: 100%;
+    /* S'adapte à la largeur du conteneur */
+    height: auto;
+    /* Conserve les proportions */
+}
+.mytxtlog {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .titresecu {
+    margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding-bottom: 20px;
+  text-align: center;
+  }
+
+  .soutitresecu {
+    margin: 0;
+    text-align: center;
+
+  }
+
+  .mykb {
+    margin: 5px 0px 10px 0px;
+  }
+  .form-group.col-md-12.placeholderContainer.first {
+    margin-top: 30px;
+  }
+  .logo img {
+    width: 40px;
+  }
+
+  .grandlogo {
+    width: 35px !important;
+  }
+
+  .logo.margin-bottom-16 {
+    text-align: center;
+  }
+
+  #placeholder {
+    margin-bottom: 50px;
+  }
+
+  header {
+    background-color: blue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: sticky
+    /* z-index: 1000;  Assure que le header reste au-dessus du contenu */
+}
+
+/* Centrage du logo */
+.logo-container {
+    text-align: left;
+  margin-left: 40px;
+}
+
+.logo-container img {
+    max-height: 40px;
+}
+
+/* Ajout de marge au contenu pour ne pas être caché sous le header */
+main {
+    margin-top: 70px; /* Ajustez selon la hauteur du header */
+}
+
+.footerNode {
+    display: flex;
+    justify-content: center;
+  }
+.titre-verification {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; /* Inter Bold */
+    font-size: 24px;
+    color: #0f172a;
+    margin-bottom: 20px;
+    text-align: center; /* ✅ CENTRAGE */
+}
+.texte-securise {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b; /* une couleur foncée douce */
+    text-align: center; /* ✅ pour centrer */
+    margin-top: 10px;
+}
+
