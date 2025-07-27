@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* Centrage vertical */
+  align-items: center;          /* Centrage horizontal */
+  background-color: #f3f4f6;
+  padding: 20px;
+}
+
+
+.top-banner {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111827;
+  padding-top: 20px;
+}
+
+.container {
+  display: flex;
+  width: 900px;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-bottom: 400px; /* ✅ espace augmenté entre le bloc et le footer */
+}
+
+
+/* ... conserve le reste tel qu'on l'a corrigé précédemment ... */
+
+/* Partie gauche */
+.left-panel {
+  flex: 1;
+  background-color: #0000FF;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 20px;
+}
+
+.left-top {
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.left-top h1 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.left-top p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.en-savoir-plus {
+  font-weight: 600;
+  margin-top: 2rem;
+  font-size: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.en-savoir-plus:hover {
+  color: #dbeafe;
+}
+
+.left-bottom {
+  font-size: 0.9rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-poste {
+  height: 30px;
+  width: auto;
+}
+
+/* Partie droite */
+.right-panel {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-panel h2 {
+  font-size: 2rem;
+  margin-top: 10px;       /* Décale légèrement vers le bas */
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  color: #00008b; /* bleu foncé */
+  margin-top: 20px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  color: #111827;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #0b4d91;
+}
+
+a {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 10px 0;
+  text-align: right;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 24px;        /* ✅ ajuste ici pour réduire la largeur */
+  border: none;
+  background-color: #0000FF;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  display: inline-block;     /* ✅ empêche qu’il s’étale sur toute la ligne */
+}
+
+button:hover {
+  background-color: #2853ef;
+}
+
+/* Responsive mobile */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .left-top {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .left-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .right-panel h2 {
+    text-align: center;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  input,
+  button {
+    width: 100%;
+  }
+
+  .logo-poste {
+    height: 28px;
+  }
+}
+.instruction-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #0000FF;
+  text-align: center;
+  font-weight: normal; /* ou 400 */
+}
+.footer-ar24 {
+  width: 100%;
+  background-color: #ffffff;
+  color: #4b5563;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  padding: 30px 40px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.footer-logo h2 {
+  color: #0000FF;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.footer-logo p {
+  max-width: 350px;
+  line-height: 1.5;
+}
+
+.footer-logos img {
+  height: 40px;
+  margin-left: 15px;
+  opacity: 0.5;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.footer-col {
+  flex: 1 1 180px;
+  margin: 10px;
+}
+
+.footer-col p {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.footer-col p:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.languages img {
+  width: 24px;
+  height: 24px;
+  margin: 0 5px;
+}
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:focus {
+  border-color: #0000ff;
+}
+
+/* Pour le champ de mot de passe avec l’icône */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  padding-right: 40px; /* pour laisser la place à l’image */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.toggle-password:hover {
+  opacity: 1;
+}
+input.error {
+  border-color: red;
+}
+.error-text {
+  color: red;
+  font-weight: 500;
+  margin-top: 5px;
+}
